@@ -113,3 +113,23 @@ func void INIT_GLOBAL() {
 };
 
 ```
+
+## Recommendations
+
+To toggle Dialogs from in-game you can combine this SDK with [gameKeyEvents@GothicModdingCommunity](https://gothic-modding-community.github.io/gmc/zengin/scripts/extenders/standalone/gameKeyEvents/) ([WoG-Link](https://forum.worldofplayers.de/forum/threads/1495001-Scriptsammlung-ScriptBin/page4?p=26055992&viewfull=1#post26055992)).  
+`gameKeyEvents` allows to read inputs directly from the engine, without a frame-function or other kinds of loops.
+
+<details>
+<summary>gameKeyEvents example</summary>
+
+```d
+func int Game_KeyEvent(var int key, var int pressed) {
+    if (key == KEY_U) && (pressed) {
+        // toggle some overlay
+        IsOverlayVisible = !IsOverlayVisible;
+        return TRUE;
+    };
+    return FALSE;
+};
+```
+</details>
